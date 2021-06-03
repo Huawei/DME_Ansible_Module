@@ -1,0 +1,72 @@
+[
+  {
+    "hidden": false,
+    "description_cn": "参数解释：文件系统名称\n参数类型：string\n参数长度：1~255\n业务约束：只能包含字母、数字、“_”和中文字符",
+    "name": "name",
+    "description_us": "",
+    "required": true
+  },
+  {
+    "hidden": false,
+    "description_cn": "参数解释：该规格文件系统容量\n参数类型：string\n参数长度：1~16777216",
+    "name": "capacity",
+    "description_us": "",
+    "required": true
+  },
+  {
+    "hidden": false,
+    "description_cn": "参数解释：是否容灾\n参数类型：boolean",
+    "name": "open_dr",
+    "description_us": "",
+    "required": true
+  },
+  {
+    "hidden": false,
+    "description_cn": "参数解释：快照预留空间百分比\n参数类型：string\n参数长度：1~255",
+    "name": "snapshot_reserved_space_percentage",
+    "description_us": "",
+    "required": false
+  },
+  {
+    "hidden": false,
+    "description_cn": "参数解释：新增客户端（RW）\n参数类型：string\n参数长度：1~255",
+    "name": "add_client_ips_rw",
+    "description_us": "",
+    "required": false
+  },
+  {
+    "hidden": false,
+    "description_cn": "参数解释：新增客户端（R）\n参数类型：string\n参数长度：1~255",
+    "name": "add_client_ips_r",
+    "description_us": "",
+    "required": false
+  },
+  {
+    "hidden": false,
+    "description_cn": "参数解释：存储设备id\n参数类型：string\n参数长度：1~64",
+    "name": "storage_id",
+    "description_us": "",
+    "required": true
+  },
+  {
+    "hidden": false,
+    "description_cn": "参数解释：存储池id\n参数类型：string\n参数长度：1~64",
+    "name": "pool_id",
+    "description_us": "",
+    "required": true
+  },
+  {
+    "hidden": false,
+    "description_cn": "参数解释：添加待办\n参数类型：boolean",
+    "name": "todo",
+    "description_us": "",
+    "required": true
+  },
+  {
+    "hidden": false,
+    "description_cn": "参数解释：单位\n参数类型：boolean\n业务约束：TB/GB",
+    "name": "units",
+    "description_us": "",
+    "required": true
+  }
+]

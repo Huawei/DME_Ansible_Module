@@ -1,0 +1,30 @@
+[
+  {
+    "hidden": false,
+    "description_cn": "参数解释：文件系统ID\n参数类型：string\n参数长度：1~64",
+    "name": "fs_id",
+    "description_us": "",
+    "required": true
+  },
+  {
+    "hidden": false,
+    "description_cn": "参数解释：新容量\n参数类型：integer",
+    "name": "new_capacity",
+    "description_us": "",
+    "required": true
+  },
+  {
+    "hidden": false,
+    "description_cn": "参数解释：容量单位\n参数类型：string",
+    "name": "capacity_unit",
+    "description_us": "",
+    "required": true
+  },
+  {
+    "hidden": false,
+    "description_cn": "参数解释：添加待办\n参数类型：boolean",
+    "name": "todo",
+    "description_us": "",
+    "required": true
+  }
+]

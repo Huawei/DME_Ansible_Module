@@ -1,0 +1,30 @@
+---
+- name: Modify LUN
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Modify LUN
+      lun_modify:
+        dme_ip: "{{dme_ip}}"
+        dme_port: "{{dme_port}}"
+        dme_user: "{{dme_user}}"
+        dme_password: "{{dme_password}}"
+        volume_wwn: "{{volume_wwn}}"
+        name: "{{name}}"
+        description: "{{description}}"
+        owner_controller: "{{owner_controller}}"
+        prefetch_policy: "{{prefetch_policy}}"
+        prefetch_value: "{{prefetch_value}}"
+        smarttier: "{{smarttier}}"
+        maxbandwidth: "{{maxbandwidth}}"
+        maxiops: "{{maxiops}}"
+        minbandwidth: "{{minbandwidth}}"
+        miniops: "{{miniops}}"
+        control_policy: "{{control_policy}}"
+        latency: "{{latency}}"
+        qos_enabled: "{{qos_enabled}}"
+      register: result
+    - name: Show result
+      debug:
+        msg: "{{result}}"

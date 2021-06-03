@@ -1,0 +1,32 @@
+---
+- name: Query Host List
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    limit: 10
+    start: 1
+  tasks:
+    - name: Query Host List
+      host_querys:
+        dme_ip: "{{dme_ip}}"
+        dme_port: "{{dme_port}}"
+        dme_user: "{{dme_user}}"
+        dme_password: "{{dme_password}}"
+        limit: "{{limit}}"
+        start: "{{start}}"
+        sort_key: "{{sort_key}}"
+        sort_dir: "{{sort_dir}}"
+        name: "{{name}}"
+        ip: "{{ip}}"
+        os_type: "{{os_type}}"
+        display_status: "{{display_status}}"
+        managed_status: "{{managed_status}}"
+        access_mode: "{{access_mode}}"
+        az_id: "{{az_id}}"
+        az_ids: "{{az_ids}}"
+        project_id: "{{project_id}}"
+      register: result
+    - name: Show Host List
+      debug:
+        msg: "{{result}}"

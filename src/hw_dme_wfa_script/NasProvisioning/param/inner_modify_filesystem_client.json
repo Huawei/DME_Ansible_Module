@@ -1,0 +1,37 @@
+[
+  {
+    "hidden": false,
+    "description_cn": "参数解释：nfs共享ID\n参数类型：string\n参数长度：1~64",
+    "name": "nfs_id",
+    "description_us": "",
+    "required": true
+  },
+  {
+    "hidden": false,
+    "description_cn": "参数解释：删除客户端ID\n参数类型：string\n参数长度：1~255",
+    "name": "delete_client_id",
+    "description_us": "",
+    "required": false
+  },
+  {
+    "hidden": false,
+    "description_cn": "参数解释：新增客户端只读\n参数类型：string\n参数长度：1~64",
+    "name": "add_client_r",
+    "description_us": "",
+    "required": false
+  },
+  {
+    "hidden": false,
+    "description_cn": "参数解释：新增客户端读写\n参数类型：string\n参数长度：1~64",
+    "name": "add_client_rw",
+    "description_us": "",
+    "required": false
+  },
+  {
+    "hidden": false,
+    "description_cn": "参数解释：添加待办\n参数类型：boolean",
+    "name": "todo",
+    "description_us": "",
+    "required": true
+  }
+]

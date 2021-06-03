@@ -1,0 +1,191 @@
+[
+  {
+    "script_path": "wfa_predefined_action/lun_customize_create.py",
+    "id": "inner_customize_create_lun",
+    "name_cn": "自定义创建LUN",
+    "name_en": "Create customized LUNs",
+    "params_path": "params/inner_customize_create_lun.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/lun_service_create.py",
+    "id": "inner_service_create_lun",
+    "name_cn": "基于服务等级创建LUN",
+    "name_en": "Create LUNs based on a service level",
+    "params_path": "params/inner_service_create_lun.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/lun_query.py",
+    "id": "inner_query_luns",
+    "name_cn": "批量查询LUN",
+    "name_en": "Query LUNs in batches",
+    "params_path": "params/inner_query_luns.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/lun_modify.py",
+    "id": "inner_modify_lun",
+    "name_cn": "修改指定LUN",
+    "name_en": "Modify a specified LUN",
+    "params_path": "params/inner_modify_lun.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/lun_delete.py",
+    "id": "inner_delete_luns",
+    "name_cn": "批量删除LUN",
+    "name_en": "Delete LUNs in batches",
+    "params_path": "params/inner_delete_luns.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/lun_add_to_service_level.py",
+    "id": "inner_add_to_service_level",
+    "name_cn": "LUN关联服务等级",
+    "name_en": "Associate LUNs with a service level",
+    "params_path": "params/inner_add_to_service_level.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/lun_update_service_level.py",
+    "id": "inner_update_service_level",
+    "name_cn": "批量更新LUN的服务等级",
+    "name_en": "Change the service level of LUNs in batches",
+    "params_path": "params/inner_update_service_level.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/lun_remove_service_level.py",
+    "id": "inner_remove_service_level",
+    "name_cn": "解除LUN与服务等级关联",
+    "name_en": "Disassociate LUNs from a service level",
+    "params_path": "params/inner_remove_service_level.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/map_host.py",
+    "id": "inner_map_host",
+    "name_cn": "LUN映射给主机",
+    "name_en": "Map LUNs to a host",
+    "params_path": "params/inner_map_host.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/unmap_host.py",
+    "id": "inner_unmap_host",
+    "name_cn": "主机解除映射LUN",
+    "name_en": "Unmap LUNs from a host",
+    "params_path": "params/inner_unmap_host.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/map_hostgroup.py",
+    "id": "inner_map_hostgroup",
+    "name_cn": "LUN映射给主机组",
+    "name_en": "Map LUNs to a host group",
+    "params_path": "params/inner_map_hostgroup.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/unmap_hostgroup.py",
+    "id": "inner_unmap_hostgroup",
+    "name_cn": "主机组解除映射LUN",
+    "name_en": "Unmap LUNs from a host group",
+    "params_path": "params/inner_unmap_hostgroup.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/host_add.py",
+    "id": "inner_add_host",
+    "name_cn": "接入主机",
+    "name_en": "Add a host",
+    "params_path": "params/inner_add_host.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/host_modify_general.py",
+    "id": "inner_modify_host_detail",
+    "name_cn": "修改主机基本信息",
+    "name_en": "Modify basic host information",
+    "params_path": "params/inner_modify_host_detail.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/host_modify_accessinfo.py",
+    "id": "inner_modify_host_accessinfo",
+    "name_cn": "修改主机接入信息",
+    "name_en": "Modify a host",
+    "params_path": "params/inner_modify_host_accessinfo.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/host_querys.py",
+    "id": "inner_query_hosts",
+    "name_cn": "批量查询主机",
+    "name_en": "Query hosts in batches",
+    "params_path": "params/inner_query_hosts.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/host_remove.py",
+    "id": "inner_remove_host",
+    "name_cn": "移除主机",
+    "name_en": "Remove a host",
+    "params_path": "params/inner_remove_host.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/hostgroup_create.py",
+    "id": "inner_create_hostgroup",
+    "name_cn": "创建主机组",
+    "name_en": "Create a host group",
+    "params_path": "params/inner_create_hostgroup.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/hostgroup_query.py",
+    "id": "inner_query_hostgroups",
+    "name_cn": "批量查询主机组",
+    "name_en": "Query host groups in batches",
+    "params_path": "params/inner_query_hostgroups.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/hostgroup_modify_detail.py",
+    "id": "inner_modify_hostgroup_detail",
+    "name_cn": "修改主机组基本信息",
+    "name_en": "Modify basic host group information",
+    "params_path": "params/inner_modify_hostgroup_detail.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/hostgroup_delete.py",
+    "id": "inner_delete_hostgroup",
+    "name_cn": "删除指定主机组",
+    "name_en": "Delete a specified host group",
+    "params_path": "params/inner_delete_hostgroup.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/hostgroup_add_host.py",
+    "id": "inner_hostgroup_add_hosts",
+    "name_cn": "向主机组增加主机",
+    "name_en": "Add hosts to a host group",
+    "params_path": "params/inner_hostgroup_add_hosts.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/hostgroup_remove_host.py",
+    "id": "inner_hostgroup_remove_hosts",
+    "name_cn": "从主机组移除主机",
+    "name_en": "Remove hosts from a host group",
+    "params_path": "params/inner_hostgroup_remove_hosts.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/filesystem_delete.py",
+    "id": "inner_delete_filesystem",
+    "name_cn": "删除文件系统",
+    "name_en": "Delete a filesystem",
+    "params_path": "params/inner_delete_filesystem.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/filesystem_capacity_modify.py",
+    "id": "inner_modify_filesystem_capacity",
+    "name_cn": "修改文件系统容量",
+    "name_en": "Modify filesystem capacity",
+    "params_path": "params/inner_modify_filesystem_capacity.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/filesystem_client_modify.py",
+    "id": "inner_modify_filesystem_client",
+    "name_cn": "修改文件系统客户端",
+    "name_en": "Modify filesystem client",
+    "params_path": "params/inner_modify_filesystem_client.json"
+  },
+  {
+    "script_path": "wfa_predefined_action/filesystem_create.py",
+    "id": "inner_create_filesystem",
+    "name_cn": "创建文件系统",
+    "name_en": "Create file system",
+    "params_path": "params/inner_create_filesystem.json"
+  }
+]

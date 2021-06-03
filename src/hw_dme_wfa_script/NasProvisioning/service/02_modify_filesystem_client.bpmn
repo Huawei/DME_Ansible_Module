@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" expressionLanguage="http://www.w3.org/1999/XPath" id="definitions_bb26e84b-257d-4ac8-85d2-ca08a3b59d8c" targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL" typeLanguage="http://www.w3.org/2001/XMLSchema">
+  <process id="proc_87a6bf6b-ead7-458f-934d-b4c8779216b3" isClosed="false" isExecutable="true" name="02-修改文件系统客户端权限" processType="None">
+    <extensionElements>
+      <camunda:properties>
+        <camunda:property name="group" value="文件系统自动化"/>
+        <camunda:property name="img" value="Modify-Filesystem.svg"/>
+        <camunda:property name="desc" value="修改文件系统"/>
+      </camunda:properties>
+    </extensionElements>
+    <startEvent id="startEvent" isInterrupting="true" name="startEvent" parallelMultiple="false">
+      <extensionElements>
+        <camunda:formData>
+          <camunda:formField datePattern="" defaultValue="" id="name" label="文件系统名称" type="string">
+            <camunda:properties>
+              <camunda:property id="inputType" value="Text"/>
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint config="false" name="hidden"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Hidden&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="hiddenCondition"/>
+              <camunda:constraint config="false" name="multiValued"/>
+              <camunda:constraint config="false" name="required"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Required&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="requiredCondition"/>
+              <camunda:constraint config="true" name="restriction"/>
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField datePattern="" defaultValue="" id="ip" label="逻辑端口IP地址" type="string">
+            <camunda:properties>
+              <camunda:property id="inputType" value="Text"/>
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint config="false" name="hidden"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Hidden&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="hiddenCondition"/>
+              <camunda:constraint config="false" name="multiValued"/>
+              <camunda:constraint config="false" name="required"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Required&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="requiredCondition"/>
+              <camunda:constraint config="true" name="restriction"/>
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField datePattern="" defaultValue="" id="storage" label="存储设备" type="string">
+            <camunda:properties>
+              <camunda:property id="inputType" value="List"/>
+              <camunda:property id="allowedValues" value="Script"/>
+              <camunda:property id="listQueryMethod" value="storage_info_query.py"/>
+              <camunda:property id="listAllowedValues" value="{&#10;  &quot;name&quot;: &quot;${param.name}&quot;,&#10;  &quot;logic_ip&quot;: &quot;${param.ip}&quot;&#10;}"/>
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint config="false" name="hidden"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Hidden&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="hiddenCondition"/>
+              <camunda:constraint config="false" name="multiValued"/>
+              <camunda:constraint config="true" name="required"/>
+              <camunda:constraint config="true" name="restriction"/>
+              <camunda:constraint config="false" name="selectFirst"/>
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField datePattern="" defaultValue="" id="filesystem" label="文件系统" type="string">
+            <camunda:properties>
+              <camunda:property id="inputType" value="List"/>
+              <camunda:property id="allowedValues" value="Script"/>
+              <camunda:property id="listQueryMethod" value="filesystem_name_query.py"/>
+              <camunda:property id="listAllowedValues" value="{&#10;  &quot;name&quot;: &quot;${param.name}&quot;,&#10;  &quot;storage_id&quot;: &quot;${param.storage}&quot;&#10;}"/>
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint config="false" name="hidden"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Hidden&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="hiddenCondition"/>
+              <camunda:constraint config="false" name="multiValued"/>
+              <camunda:constraint config="true" name="required"/>
+              <camunda:constraint config="true" name="restriction"/>
+              <camunda:constraint config="false" name="selectFirst"/>
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField datePattern="" defaultValue="" id="nfs_name" label="nfs共享名称" type="string">
+            <camunda:properties>
+              <camunda:property id="inputType" value="List"/>
+              <camunda:property id="allowedValues" value="Script"/>
+              <camunda:property id="listQueryMethod" value="nfs_name_query.py"/>
+              <camunda:property id="listAllowedValues" value="{&#10;  &quot;fs_id&quot;: &quot;${param.filesystem}&quot;,&#10;  &quot;storage_id&quot;: &quot;${param.storage}&quot;&#10;}"/>
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint config="false" name="hidden"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Hidden&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="hiddenCondition"/>
+              <camunda:constraint config="false" name="multiValued"/>
+              <camunda:constraint config="true" name="required"/>
+              <camunda:constraint config="true" name="restriction"/>
+              <camunda:constraint config="false" name="selectFirst"/>
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField datePattern="" defaultValue="" id="add_client_RW" label="新增客户端-读写" type="string">
+            <camunda:properties>
+              <camunda:property id="inputType" value="Text"/>
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint config="false" name="hidden"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Hidden&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="hiddenCondition"/>
+              <camunda:constraint config="false" name="multiValued"/>
+              <camunda:constraint config="false" name="required"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Required&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="requiredCondition"/>
+              <camunda:constraint config="true" name="restriction"/>
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField datePattern="" defaultValue="false" id="add_read_only_client" label="增加只读权限客户端" type="boolean">
+            <camunda:properties>
+              <camunda:property id="inputType" value="Checkbox"/>
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint config="false" name="hidden"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Hidden&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="hiddenCondition"/>
+              <camunda:constraint config="false" name="multiValued"/>
+              <camunda:constraint config="false" name="required"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Required&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="requiredCondition"/>
+              <camunda:constraint config="true" name="restriction"/>
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField datePattern="" defaultValue="" id="add_client_R" label="新增客户端-只读" type="string">
+            <camunda:properties>
+              <camunda:property id="inputType" value="Text"/>
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint config="true" name="hidden"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;add_read_only_client&quot;,&quot;value&quot;:false,&quot;input_type&quot;:&quot;Checkbox&quot;}" name="hiddenCondition"/>
+              <camunda:constraint config="false" name="multiValued"/>
+              <camunda:constraint config="false" name="required"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Required&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="requiredCondition"/>
+              <camunda:constraint config="true" name="restriction"/>
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField datePattern="" defaultValue="false" id="remove" label="移除客户端权限" type="boolean">
+            <camunda:properties>
+              <camunda:property id="inputType" value="Checkbox"/>
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint config="false" name="hidden"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Hidden&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="hiddenCondition"/>
+              <camunda:constraint config="false" name="multiValued"/>
+              <camunda:constraint config="false" name="required"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Required&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="requiredCondition"/>
+              <camunda:constraint config="true" name="restriction"/>
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField datePattern="" defaultValue="" id="remove_client" label="移除客户端" type="string">
+            <camunda:properties>
+              <camunda:property id="inputType" value="List"/>
+              <camunda:property id="allowedValues" value="Script"/>
+              <camunda:property id="listQueryMethod" value="client_query.py"/>
+              <camunda:property id="listAllowedValues" value="{&#10;  &quot;nfs_id&quot;: &quot;${param.nfs_name}&quot;&#10;}"/>
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint config="true" name="hidden"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;remove&quot;,&quot;value&quot;:false,&quot;input_type&quot;:&quot;Checkbox&quot;}" name="hiddenCondition"/>
+              <camunda:constraint config="true" name="multiValued"/>
+              <camunda:constraint config="false" name="required"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Required&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="requiredCondition"/>
+              <camunda:constraint config="true" name="restriction"/>
+              <camunda:constraint config="false" name="selectFirst"/>
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField datePattern="" defaultValue="" id="preview" label="结果预览" type="string">
+            <camunda:properties>
+              <camunda:property id="inputType" value="PreView"/>
+              <camunda:property id="allowedValues" value="Script"/>
+              <camunda:property id="listQueryMethod" value="modify_client_preview.py"/>
+              <camunda:property id="listAllowedValues" value="{&#10;  &quot;fs_id&quot;: &quot;${param.filesystem}&quot;,&#10;  &quot;nfs_id&quot;: &quot;${param.nfs_name}&quot;,&#10;  &quot;add_client_r&quot;: &quot;${param.add_client_R}&quot;,&#10;  &quot;add_client_rw&quot;: &quot;${param.add_client_RW}&quot;,&#10;  &quot;delete_client&quot;: &quot;${param.remove}&quot;,&#10;  &quot;delete_client_id&quot;: &quot;${param.remove_client}&quot;&#10;}"/>
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint config="false" name="hidden"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Hidden&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="hiddenCondition"/>
+              <camunda:constraint config="false" name="multiValued"/>
+              <camunda:constraint config="false" name="required"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Required&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="requiredCondition"/>
+              <camunda:constraint config="true" name="restriction"/>
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField datePattern="" defaultValue="false" id="todo" label="加入待办" type="boolean">
+            <camunda:properties>
+              <camunda:property id="inputType" value="Checkbox"/>
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint config="false" name="hidden"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Hidden&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="hiddenCondition"/>
+              <camunda:constraint config="false" name="multiValued"/>
+              <camunda:constraint config="false" name="required"/>
+              <camunda:constraint config="{&quot;operator&quot;:&quot;=&quot;,&quot;param_name&quot;:&quot;Required&quot;,&quot;value&quot;:&quot;&quot;,&quot;input_type&quot;:&quot;&quot;}" name="requiredCondition"/>
+              <camunda:constraint config="true" name="restriction"/>
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+      </extensionElements>
+      <outgoing>sequenceFlow_176e54f9-3865-4cb2-a410-11a235b9019d</outgoing>
+    </startEvent>
+    <serviceTask camunda:asyncBefore="true" camunda:delegateExpression="${serviceTaskDelegate}" completionQuantity="1" id="step_7d25fb4f-3450-4e83-88f0-186e631bf4ab" implementation="##WebService" isForCompensation="false" name="修改文件系统客户端" startQuantity="1">
+      <extensionElements>
+        <camunda:properties>
+          <camunda:property name="type" value="local"/>
+          <camunda:property name="script" value="wfa_predefined_action/filesystem_client_modify.py"/>
+          <camunda:property name="extraVariable" value="{&#10;  &quot;todo&quot;: &quot;${param.todo}&quot;,&#10;  &quot;nfs_id&quot;: &quot;${param.nfs_name}&quot;,&#10;  &quot;add_client_rw&quot;: &quot;${param.add_client_RW}&quot;,&#10;  &quot;add_client_r&quot;: &quot;${param.add_client_R}&quot;,&#10;  &quot;delete_client_id&quot;: &quot;${param.remove},${param.remove_client}&quot;&#10;}"/>
+        </camunda:properties>
+      </extensionElements>
+      <incoming>sequenceFlow_176e54f9-3865-4cb2-a410-11a235b9019d</incoming>
+      <outgoing>sequenceFlow_7188fc8e-91d2-4a2e-8ad9-1daaa39968c9</outgoing>
+    </serviceTask>
+    <sequenceFlow id="sequenceFlow_176e54f9-3865-4cb2-a410-11a235b9019d" sourceRef="startEvent" targetRef="step_7d25fb4f-3450-4e83-88f0-186e631bf4ab"/>
+    <endEvent id="endEvent" name="endEvent">
+      <incoming>sequenceFlow_7188fc8e-91d2-4a2e-8ad9-1daaa39968c9</incoming>
+    </endEvent>
+    <sequenceFlow id="sequenceFlow_7188fc8e-91d2-4a2e-8ad9-1daaa39968c9" sourceRef="step_7d25fb4f-3450-4e83-88f0-186e631bf4ab" targetRef="endEvent"/>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_e4e0135e-8c20-4c94-8fd2-9ef979133305">
+    <bpmndi:BPMNPlane bpmnElement="proc_87a6bf6b-ead7-458f-934d-b4c8779216b3" id="BPMNPlane_8ab33221-3f28-4788-a79c-e89a0ee1830b">
+      <bpmndi:BPMNShape bpmnElement="startEvent" id="BPMNShape_1ccc504a-5db8-42fb-a992-f6825e8c2609">
+        <dc:Bounds height="36.0" width="36.0" x="100.0" y="100.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="step_7d25fb4f-3450-4e83-88f0-186e631bf4ab" id="BPMNShape_563df6ae-0c76-4c65-b001-db7ae6bdcb4e">
+        <dc:Bounds height="80.0" width="100.0" x="186.0" y="78.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sequenceFlow_176e54f9-3865-4cb2-a410-11a235b9019d" id="BPMNEdge_bbdbad6f-1ee1-4b73-abe3-fdf272d88054">
+        <di:waypoint x="136.0" y="118.0"/>
+        <di:waypoint x="186.0" y="118.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape bpmnElement="endEvent" id="BPMNShape_21b9af49-2aa2-43b0-90f0-541e890ffd9a">
+        <dc:Bounds height="36.0" width="36.0" x="336.0" y="100.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sequenceFlow_7188fc8e-91d2-4a2e-8ad9-1daaa39968c9" id="BPMNEdge_37fcfc89-8fde-4d59-ad8b-8a4c0d3b1fb1">
+        <di:waypoint x="286.0" y="118.0"/>
+        <di:waypoint x="336.0" y="118.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
